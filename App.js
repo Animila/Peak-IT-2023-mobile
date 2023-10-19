@@ -1,8 +1,13 @@
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
-import { StatusBar } from 'expo-status-bar'
 import { useCallback, useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
+import MainPage from './components/pages/MainPage'
+import StartScreen from './components/pages/StartPage'
+
+const Stack = createStackNavigator()
 
 export default function App() {
 	const [appIsReady, setAppIsReady] = useState(false)
@@ -37,8 +42,20 @@ export default function App() {
 
 	return (
 		<View style={styles.container} onLayout={onLayoutRootView}>
-			{/* <Image source={require('./assets/first_logo.png')} /> */}
-			<StatusBar style='auto' />
+			<NavigationContainer>
+				<Stack.Navigator initialRouteName='MainScreen'>
+					<Stack.Screen
+						name='StartScreen'
+						component={StartScreen}
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name='MainScreen'
+						component={MainPage}
+						options={{ headerShown: false }}
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
 		</View>
 	)
 }
@@ -46,8 +63,12 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
+		position: 'relative',
+		height: '100%',
+		backgroundColor: '#FFFFFF',
+	},
+	photo: {
+		position: 'absolute',
+		bottom: 0,
 	},
 })
