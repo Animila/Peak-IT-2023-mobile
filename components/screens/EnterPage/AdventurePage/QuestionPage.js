@@ -1,4 +1,4 @@
-import { useRoute } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { useEffect, useState } from 'react'
 import {
 	Image,
@@ -21,6 +21,22 @@ const QuestionPage = () => {
 	const route = useRoute()
 	const { questionId } = route.params
 	const [question, setQuestion] = useState(null)
+	const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
+	const navigation = useNavigation()
+
+	const handleAnswerSelection = index => {
+		if (question && question.results[index].answer) {
+			// Correct answer, set the selected answer index and style it as green
+			alert('Ответ верный. Вам начислено 100 бонусов')
+			setSelectedAnswerIndex(index)
+			navigation.navigate('ListAdventure')
+		} else {
+			// Incorrect answer, set the selected answer index and style it as red
+			alert('Ответ неверный')
+			setSelectedAnswerIndex(index)
+			navigation.navigate('ListAdventure')
+		}
+	}
 
 	useEffect(() => {
 		// Вызываем функцию для получения вопроса по id
@@ -86,8 +102,25 @@ const QuestionPage = () => {
 								}}
 							>
 								{question.results.map((item, index) => (
-									<TouchableOpacity key={index}>
-										<View>
+									<TouchableOpacity
+										key={index}
+										onPress={() => handleAnswerSelection(index)}
+									>
+										<View
+											style={{
+												borderColor: '#7BB4D2',
+												borderWidth: 2,
+												borderRadius: 10,
+												paddingVertical: 16,
+												paddingHorizontal: 26,
+												backgroundColor:
+													selectedAnswerIndex === index
+														? item.answer
+															? 'green' // Correct answer, green background
+															: 'red' // Incorrect answer, red background
+														: 'white', // Default background
+											}}
+										>
 											<Text>{item.title}</Text>
 										</View>
 									</TouchableOpacity>

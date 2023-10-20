@@ -90,6 +90,7 @@ function TicketsScreen() {
 							<Text>Билеты</Text>
 							{item.tickets.map((item, index) => (
 								<View
+									key={index}
 									style={{
 										flexDirection: 'row',
 										justifyContent: 'space-between',

@@ -46,7 +46,7 @@ export default function App() {
 	return (
 		<View style={styles.container} onLayout={onLayoutRootView}>
 			<NavigationContainer>
-				<Stack.Navigator initialRouteName='MainScreen'>
+				<Stack.Navigator initialRouteName='StartScreen'>
 					<Stack.Screen
 						name='StartScreen'
 						component={StartScreen}
