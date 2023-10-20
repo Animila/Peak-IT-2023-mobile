@@ -37,7 +37,7 @@ function ResultScreen() {
 				source={require('../../../assets/header.jpg')}
 				style={{ position: 'absolute', top: 0 }}
 			/>
-			<Title style={{ marginTop: 86 }}>Итоги мероприятий</Title>
+			<Title style={{ marginTop: 70 }}>Итоги мероприятий</Title>
 			<View
 				style={{
 					paddingHorizontal: 5,
@@ -48,7 +48,10 @@ function ResultScreen() {
 				}}
 			>
 				{data.map((item, index) => (
-					<TouchableOpacity key={index} onPress={() => handleViewPress(item)}>
+					<TouchableOpacity
+						key={index}
+						onPress={() => handleViewPress(item.id)}
+					>
 						<View key={index} style={{ marginVertical: 5 }}>
 							<Image
 								source={{ uri: item.uri }}

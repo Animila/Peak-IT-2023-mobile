@@ -6,6 +6,8 @@ import { useCallback, useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import MainPage from './components/pages/MainPage'
 import StartScreen from './components/pages/StartPage'
+import ListAdventure from './components/screens/EnterPage/AdventurePage/ListAdventure'
+import QuestionPage from './components/screens/EnterPage/AdventurePage/QuestionPage'
 import ResultPage from './components/screens/EnterPage/ResultPage'
 
 const Stack = createStackNavigator()
@@ -58,6 +60,16 @@ export default function App() {
 					<Stack.Screen
 						name='ResultPage'
 						component={ResultPage}
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name='ListAdventure'
+						component={ListAdventure}
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name='QuestionPage'
+						component={QuestionPage}
 						options={{ headerShown: false }}
 					/>
 				</Stack.Navigator>

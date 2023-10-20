@@ -107,7 +107,7 @@ function CalendarScreen() {
 				source={require('../../../assets/header.jpg')}
 				style={{ position: 'absolute', top: 0 }}
 			/>
-			<Title style={{ marginTop: 86 }}>Мероприятия</Title>
+			<Title style={{ marginTop: 70 }}>Мероприятия</Title>
 			<Block
 				style={{
 					marginTop: 9,
