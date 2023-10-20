@@ -218,7 +218,6 @@ function CalendarScreen() {
 								numberOfLines={2}
 								ellipsizeMode='tail'
 								style={{
-									alignSelf: 'start',
 									fontSize: 13,
 								}}
 							>
@@ -233,7 +232,6 @@ function CalendarScreen() {
 							>
 								<Text
 									style={{
-										alignSelf: 'end',
 										fontSize: 13,
 									}}
 								>
@@ -244,7 +242,6 @@ function CalendarScreen() {
 								</Text>
 								<Text
 									style={{
-										alignSelf: 'end',
 										fontSize: 13,
 									}}
 								>

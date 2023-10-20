@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
 	title: {
 		color: '#4DC2FB',
 		textAlign: 'left',
+		fontWeight: '500',
 	},
 })
 
